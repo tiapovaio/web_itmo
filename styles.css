@@ -127,11 +127,10 @@ section {
 }
 
 .gallery__item img {
-    border: 0.0625rem solid #333;
-    margin-bottom: 0.3125rem;
-    max-width: 17.1875rem;
-    max-height: 17.1875rem;
-    object-fit: cover;
+    border: 1px solid #333;
+    margin-bottom: 5px;
+    width: 275px;
+    height: 275px;
 }
 
 .gallery__description {
@@ -160,21 +159,27 @@ blockquote {
     align-items: center;
 }
 
+.chessboard thead, .chessboard tbody, .chessboard tr {
+    display: contents;
+}
+
 .cell img {
-    max-width: 70%;
-    max-height: 70%;
+    width: clamp(30px, 100%, 50px);
+    height: auto;
 }
 
 .cell:hover img{
     transform: translateY(-0.3125rem);
 }
 
-.light {
-    background-color: #ffe6e6;
+.chessboard tr:nth-child(even) td:nth-child(odd),
+.chessboard tr:nth-child(odd) td:nth-child(even) {
+    background-color: #333;
 }
 
-.dark {
-    background-color: #333;
+.chessboard tr:nth-child(even) td:nth-child(even),
+.chessboard tr:nth-child(odd) td:nth-child(odd) {
+    background-color: #ffe6e6;
 }
 
 footer {
@@ -202,10 +207,16 @@ footer {
         grid-template-rows: repeat(8, 50px);
     }
 
-    .chessboard .cell {
+    .cell {
         width: 50px;
         height: 50px;
     }
+
+    .cell img{
+        width: 30px;
+        height: 30px;
+    }
+
 }
 
 @media screen and (min-width: 1920px) {
@@ -251,9 +262,14 @@ footer {
         grid-template-rows: repeat(8, 120px);
     }
 
-    .chessboard .cell {
+    .cell {
         width: 120px;
         height: 120px;
+    }
+
+    .cell img {
+        width: 50px;
+        height: 50px;
     }
 
     section {
