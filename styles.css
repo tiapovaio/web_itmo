@@ -5,11 +5,15 @@ body {
     color: #333;
     line-height: 1.6;
 }
-
+.active {
+    background-color: #aa5667;
+    color: white;
+    border: 1px solid #666;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 .donate {
-    position: fixed;
-    top: 8px;
-    right: 0;
+    position: relative;
     background-color: #aa5667;
     color: #ffe6e6;
     padding: 0.75rem 1.25rem;
@@ -17,7 +21,6 @@ body {
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    z-index: 1000;
     transition: background-color 0.3s ease;
     width: auto;
     height: 110px;

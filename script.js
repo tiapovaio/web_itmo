@@ -1,27 +1,19 @@
-(function () {
-    window.addEventListener("load", () => {
-        const loadTime = performance.now();
-        const footer = document.querySelector("footer");
+(function() {
+    const currentPage = document.location.href;
 
-        if (footer) {
-            const loadTimeElement = document.createElement("div");
-            loadTimeElement.classList.add("load-time");
-            loadTimeElement.textContent = `Page load time: ${loadTime.toFixed(2)} ms`;
-            footer.appendChild(loadTimeElement);
+    const menuItems = document.querySelectorAll('nav ul li a');
+
+    menuItems.forEach(item => {
+        if (item.href === currentPage) {
+            item.classList.add('active');
         }
     });
+
+    window.addEventListener('load', () => {
+        const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+        const footer = document.querySelector('footer');
+        const loadTimeMessage = document.createElement('p');
+        loadTimeMessage.textContent = `Loading time: ${loadTime} ms`;
+        footer.appendChild(loadTimeMessage);
+    });
 })();
-
-document.addEventListener("DOMContentLoaded", () => {
-    const donateButton = document.querySelector(".donate");
-    if (donateButton) {
-        donateButton.addEventListener("click", () => {
-            window.location.href = "donate.html";
-        });
-    }
-
-    const currentPage = document.location.pathname;
-    if (donateButton.dataset.page === currentPage) {
-        donateButton.classList.add("active");
-    }
-});
