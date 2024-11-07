@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="donate_styles.css">
+    <title>Donate</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+<main>
+<div class="donate-container">
+  <h1>Дать много денег</h1>
+    <label for="amount">Сумма денег:</label>
+    <input type="number" id="amount" name="amount" min="52" placeholder="Введите количество денег" required>
+
+    <label for="payment-method">Как дать денег:</label>
+    <select id="payment-method" name="payment-method" required>
+      <option value="">Выберите способ расстаться с деньгами</option>
+      <option value="card">На карточку</option>
+      <option value="bank-transfer">Банковский перевод денег</option>
+      <option value="bank-transfer-card">Мне на карточку</option>
+    </select>
+
+    <button type="submit">Расстаться с деньгами</button>
+</div>
+</main>
+<footer>
+</footer>
+</body>
+</html>

@@ -1,0 +1,94 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+    background: linear-gradient(to right, #ffe6e6, #edb8c2);
+    flex-direction: column;
+    position: relative;
+}
+
+.donate-container {
+    background-color: #fff;
+    padding: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: center;
+    border: 2px solid #aa5667;
+    border-radius: 8px;
+}
+
+.form-container input[type="text"],
+.form-container select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #aa5667;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-size: 1rem;
+    color: #666;
+}
+
+input[type="number"], select, button {
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus, select:focus, button:focus {
+    outline: none;
+    border-color: #aa5667;
+    box-shadow: 0 0 5px rgba(170, 86, 103, 0.5);
+}
+
+button {
+    background-color: #aa5667;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0.8rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #e69ba9;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1.25rem;
+    text-align: center;
+    color: #333;
+    font-size: 0.875rem;
+    margin-top: auto;
+}
