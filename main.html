@@ -31,11 +31,23 @@
           <li><a href="events.html">События</a></li>
         </ul>
       </nav>
+
       <div class="reviews-container">
         <h2>Отзывы</h2>
-        <div id="reviews-list">
-        </div>
+        <div id="reviews-list"></div>
       </div>
+
+      <template id="review-card-template">
+        <div class="review-card">
+          <p><strong>Ник:</strong> <span class="review-name"></span></p>
+          <p><strong>Отзыв:</strong> <span class="review-feedback"></span></p>
+          <p><strong>Дата:</strong> <span class="review-date"></span></p>
+        </div>
+      </template>
+
+      <p id="thank-you-message" style="display:none;">Спасибо за ваш отзыв!</p>
+
+
     </main>
     <footer>
       <blockquote>
