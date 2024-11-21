@@ -1,19 +1,20 @@
-(function() {
-    const currentPage = document.location.href;
+document.getElementById('submit-btn').addEventListener('click', function () {
+    const name = document.getElementById('name').value.trim();
+    const feedback = document.getElementById('feedback').value.trim();
 
-    const menuItems = document.querySelectorAll('nav ul li a');
+    if (!name || !feedback) {
+        alert('Пожалуйста, заполните все поля формы!');
+        return;
+    }
+    const review = {
+        name,
+        feedback,
+        date: new Date().toLocaleString(),
+    };
 
-    menuItems.forEach(item => {
-        if (item.href === currentPage) {
-            item.classList.add('active');
-        }
-    });
+    let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+    reviews.push(review);
+    localStorage.setItem('reviews', JSON.stringify(reviews));
 
-    window.addEventListener('load', () => {
-        const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
-        const footer = document.querySelector('footer');
-        const loadTimeMessage = document.createElement('p');
-        loadTimeMessage.textContent = `Loading time: ${loadTime} ms`;
-        footer.appendChild(loadTimeMessage);
-    });
-})();
+    window.location.href = 'main.html';
+});

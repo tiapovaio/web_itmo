@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="donate_styles.css">
-    <title>Donate</title>
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="donate.css">
+  <script src="script.js" defer></script>
+  <title>Донат</title>
 </head>
-
 <body>
-<main>
-<div class="donate-container">
-  <h1>Дать много денег</h1>
-    <label for="amount">Сумма денег:</label>
-    <input type="number" id="amount" name="amount" min="52" placeholder="Введите количество денег" required>
+<div class="first-gradient"></div>
+<div class="second-gradient"></div>
+<div class="third-gradient"></div>
+<div class="form-container">
+  <h2>Напишите что-нибудь</h2>
+  <form id="feedback-form">
+    <label for="name">Ваш ник:</label>
+    <input type="text" id="name" name="name" required placeholder="Введите ник">
 
-    <label for="payment-method">Как дать денег:</label>
-    <select id="payment-method" name="payment-method" required>
-      <option value="">Выберите способ расстаться с деньгами</option>
-      <option value="card">На карточку</option>
-      <option value="bank-transfer">Банковский перевод денег</option>
-      <option value="bank-transfer-card">Мне на карточку</option>
-    </select>
+    <label for="feedback">Ваш отзыв:</label>
+    <textarea id="feedback" name="feedback" required placeholder="Отзыв тут"></textarea>
+    <button type="button" id="submit-btn" >Отправить</button>
+  </form>
 
-    <button type="submit">Расстаться с деньгами</button>
+  <div id="thank-you-message" style="display: none; text-align: center; margin-top: 20px; color: #a39118; font-weight: bold;">
+    Спасибо за отзыв!
+  </div>
 </div>
-</main>
-<footer>
-</footer>
 </body>
 </html>
