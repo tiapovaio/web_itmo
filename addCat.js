@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 container.appendChild(button);
             });
         })
-        .catch(error => console.error('Error fetching tags:', error));
+        .catch(error => console.error('Ошибка запроса тега:', error));
 
 
     function fetchCatImage(tag) {
@@ -78,9 +78,60 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     imageElement.src = response.url;
                 } else {
-                    console.error('Error fetching image:', response.statusText);
+                    console.error('Ошибка запроса картинки:', response.statusText);
                 }
             })
-            .catch(error => console.error('Error fetching cat image:', error));
+            .catch(error => console.error('Ошибка запроса картинки:', error));
+    }
+
+
+
+
+
+
+
+
+    toastr.options = {
+        closeButton: true,
+        progressBar: true,
+        positionClass: "toast-top-right",
+        timeOut: "3000",
+    };
+
+    fetch('https://cataas.com/api/tags')
+        .then(response => response.json())
+        .then(tags => {
+            const container = document.getElementById('button-container2');
+
+            tags.forEach(tag => {
+                const button = document.createElement('button');
+                button.textContent = tag;
+                button.className = 'cat-button';
+                button.addEventListener('click', () => showCatImage(tag));
+                container.appendChild(button);
+            });
+        })
+        .catch((error) => {toastr.error('Ошибка запроса: ' + error.message); console.log(error)});
+
+    function showCatImage(tag) {
+        toastr.info(`Загрузка: ${tag}...`);
+
+        fetch(`https://cataas.com/cat/${tag}`)
+            .then(response => {
+                if (response.ok) {
+                    Swal.fire({
+                        title: `кошка: ${tag}`,
+                        imageUrl: response.url,
+                        imageWidth: 400,
+                        imageAlt: `кошка ${tag}`,
+                        confirmButtonText: 'крутая!',
+
+                    });
+                } else {
+                    toastr.error(`Не получилось загрузить картинку для тега: ${tag}`);
+                    console.log(tag);
+                }
+            })
+            .catch((error) => {toastr.error('Ошибка запроса картинки: ' + error.message); console.log(error)});
     }
 });
