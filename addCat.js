@@ -47,4 +47,40 @@ document.addEventListener('DOMContentLoaded', () => {
             showError('Введите корректный URL.');
         }
     });
+
+
+
+
+
+    fetch('https://cataas.com/api/tags')
+        .then(response => response.json())
+        .then(tags => {
+            const container = document.getElementById('button-container');
+
+            tags.forEach(tag => {
+                const button = document.createElement('button');
+                button.textContent = tag;
+                button.className = 'cat-button';
+                button.addEventListener('click', () => fetchCatImage(tag));
+                container.appendChild(button);
+            });
+        })
+        .catch(error => console.error('Error fetching tags:', error));
+
+
+    function fetchCatImage(tag) {
+        const imageElement = document.getElementById('cat-image');
+        imageElement.src = '';
+
+
+        fetch(`https://cataas.com/cat/${tag}`)
+            .then(response => {
+                if (response.ok) {
+                    imageElement.src = response.url;
+                } else {
+                    console.error('Error fetching image:', response.statusText);
+                }
+            })
+            .catch(error => console.error('Error fetching cat image:', error));
+    }
 });

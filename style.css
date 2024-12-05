@@ -410,3 +410,13 @@ button:hover {
 }
 
 
+.cat-button{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-decoration: none;
+    background: none;
+    color: #000;
+}
+
